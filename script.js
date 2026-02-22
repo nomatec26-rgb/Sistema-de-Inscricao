@@ -182,13 +182,16 @@ document.addEventListener("DOMContentLoaded", () => {
                     valor: valoresPacotes[dadosTemporarios.pacote]
                 })
             });
-
             const data = await response.json();
 
             if (!response.ok) {
-                alert("❌ Erro ao criar pagamento.");
+                alert("Erro ao criar pagamento.");
+                confirmarBtn.disabled = false;
                 return;
             }
+
+            // 🔥 REDIRECIONA PARA O MERCADO PAGO
+            window.location.href = data.init_point;
 
 
 
@@ -196,7 +199,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const container = document.getElementById("wallet_container");
             container.innerHTML = "";
 
-            const mp = new MercadoPago("APP_USR-894c3446-4efb-4fa6-8079-b18633624f39", {
+            const mp = new MercadoPago("APP_USR-de569355-7653-4ac6-a06d-1bd1d84ee826", {
                 locale: "pt-BR"
             });
 
