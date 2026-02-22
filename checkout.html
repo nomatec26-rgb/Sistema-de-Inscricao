@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Checkout - Elite Soccer</title>
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #f1f5f9;
+            padding: 40px;
+        }
+
+        .checkout-card {
+            max-width: 500px;
+            margin: auto;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .valor {
+            font-size: 28px;
+            font-weight: bold;
+            text-align: center;
+            margin: 20px 0;
+            color: #16a34a;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="checkout-card">
+        <h2>Resumo do Pagamento</h2>
+
+        <div id="dadosCheckout"></div>
+
+        <div class="valor" id="valorCheckout"></div>
+
+        <div id="wallet_container"></div>
+    </div>
+
+    <script>
+        const mp = new MercadoPago("APP_USR-894c3446-4efb-4fa6-8079-b18633624f39", {
+            locale: "pt-BR"
+        });
+
+
+        const dados = JSON.parse(localStorage.getItem("inscricaoPeneira"));
+
+        if (dados) {
+
+            function formatarMoeda(valor) {
+                return valor.toLocaleString("pt-BR", {
+                    style: "currency",
+                    currency: "BRL"
+                });
+            }
+
+            document.getElementById("dadosCheckout").innerHTML = `
+        <p><strong>Atleta:</strong> ${dados.nome}</p>
+        <p><strong>Pacote:</strong> ${dados.pacote}</p>
+    `;
+
+            document.getElementById("valorCheckout").textContent =
+                formatarMoeda(dados.valor);
+
+            // 🔥 CHAMA SEU BACKEND
+            fetch("http://localhost:3000/create_preference", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    title: `Inscrição ${dados.pacote}`,
+                    price: dados.valor
+                })
+            })
+                .then(res => res.json())
+                .then(data => {
+
+                    const bricksBuilder = mp.bricks();
+
+                    bricksBuilder.create("wallet", "wallet_container", {
+                        initialization: {
+                            preferenceId: data.id
+                        }
+                    });
+
+                });
+        }
+    </script>

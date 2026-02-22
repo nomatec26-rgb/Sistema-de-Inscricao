@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Elite Soccer Experience 2026 - Evento de avaliação técnica para jovens talentos do futebol.">
+    <title>Elite Soccer Experience 2026 | Peneira de Futebol</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
+</head>
+
+<body>
+
+    <header class="header" id="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="nav-logo">
+                    <h2>Elite Soccer</h2>
+                    <span>Experience 2026</span>
+                </div>
+
+                <ul class="nav-menu">
+                    <li><a href="#home">Início</a></li>
+                    <li><a href="#about">Sobre</a></li>
+                    <li><a href="#services">Pacotes</a></li>
+                    <li><a href="#gallery">Galeria</a></li>
+                    <li><a href="#faq">Dúvidas</a></li>
+                    <li><a href="#contact" class="nav-link-cta">Inscrição</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Mostre Seu <span class="text-accent">Talento</span></h1>
+                <p>
+                    Participe da Elite Soccer Experience 2026 e viva uma avaliação técnica
+                    estruturada para jovens atletas que desejam evoluir.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">Quero Me Inscrever</a>
+                    <a href="#about" class="btn btn-outline">Como Funciona</a>
+                </div>
+
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="120">0</div>
+                        <div class="stat-label">Vagas Limitadas</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="4">0</div>
+                        <div class="stat-label">Categorias</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="2">0</div>
+                        <div class="stat-label">Dias de Evento</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="container">
+            <h2>Sobre a Peneira</h2>
+            <p>
+                A Elite Soccer Experience é um evento de avaliação técnica voltado para
+                jovens atletas que desejam testar seu potencial em um ambiente profissional.
+            </p>
+            <p>
+                Durante dois dias intensivos, os participantes passam por testes físicos,
+                fundamentos técnicos e jogos avaliativos com comissão especializada.
+            </p>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <div class="container">
+            <h2>Pacotes</h2>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Pacote Básico</h3>
+                    <p>Avaliação técnica completa</p>
+                    <a href="#contact" class="btn btn-primary">Garantir Vaga</a>
+                </div>
+
+                <div class="service-card">
+                    <h3>Pacote Intermediário</h3>
+                    <p>Avaliação + Alimentação</p>
+                    <a href="#contact" class="btn btn-primary">Garantir Vaga</a>
+                </div>
+
+                <div class="service-card">
+                    <h3>Pacote Premium</h3>
+                    <p>Hotel + Alimentação + Avaliação</p>
+                    <a href="#contact" class="btn btn-primary">Garantir Vaga</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <h2>Galeria</h2>
+            <div class="gallery-grid">
+                <img src="https://images.unsplash.com/photo-1517927033932-b3d18e61fb3a?w=600" />
+                <img src="https://images.unsplash.com/photo-1521417531039-7e15c88b3a2d?w=600" />
+                <img src="https://images.unsplash.com/photo-1508098682722-e99c643e7f2c?w=600" />
+            </div>
+        </div>
+    </section>
+
+    <section class="faq" id="faq">
+        <div class="container">
+            <h2>Perguntas Frequentes</h2>
+
+            <div class="faq-item">
+                <h4>Qual idade pode participar?</h4>
+                <p>Atletas entre 10 e 17 anos, divididos por categoria.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>A peneira garante contrato?</h4>
+                <p>Não. O evento é uma avaliação técnica, sem garantia de contrato.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>O hotel é obrigatório?</h4>
+                <p>Não. Apenas para quem optar pelo pacote premium.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>Faça Sua Inscrição</h2>
+
+            <form id="formPeneira" class="form-card">
+
+                <div class="form-group">
+                    <label>Nome do Atleta</label>
+                    <input type="text" name="nome" placeholder="Digite o nome completo" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Data de Nascimento</label>
+                    <input type="date" name="data" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Posição</label>
+                    <input type="text" name="posicao" placeholder="Ex: Atacante, Zagueiro..." required>
+                </div>
+
+                <div class="form-group">
+                    <label>Telefone</label>
+                    <input type="text" name="telefone" placeholder="(00) 00000-0000" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Nome do Responsável</label>
+                    <input type="text" name="responsavel" placeholder="Nome completo do responsável" required>
+                </div>
+                <div class="form-group">
+                    <label>Escolha o Pacote</label>
+                    <select name="pacote" id="pacoteSelect" required>
+                        <option value="">Selecione</option>
+                        <option value="Basic">Pacote Básico</option>
+                        <option value="Premium">Pacote Premium</option>
+                        <option value="Elite">Pacote Elite</option>
+                    </select>
+
+                    <div id="resumoValor" style="margin-top:10px; font-weight:600;">
+                        Valor: R$ 0,00
+                    </div>
+                </div>
+
+
+                <button type="submit" class="btn-form">
+                    Finalizar Inscrição
+                </button>
+                <div class="resumo-card" id="resumoCard" style="display:none;">
+                    <h2>Confirme seus dados</h2>
+
+                    <div class="resumo-dados" id="resumoConteudo"></div>
+
+                    <div class="resumo-valor" id="valorFinal"></div>
+
+                    <button class="btn-confirmar" id="confirmarInscricao">
+                        Confirmar e Ir para Pagamento
+                    </button>
+                    <!-- 👇 COLOCA AQUI -->
+                    <div id="wallet_container" style="margin-top:20px;"></div>
+                </div>
+
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Elite Soccer Experience. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

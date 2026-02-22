@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Pagamento Aprovado</title>
+</head>
+
+<body>
+    <h2>✅ Pagamento Aprovado!</h2>
+    <p>Estamos confirmando sua inscrição...</p>
+
+    <script>
+        const dados = JSON.parse(localStorage.getItem("inscricaoPeneira"));
+
+        if (dados) {
+            fetch("", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    ...dados,
+                    status: "APROVADO"
+                })
+            })
+                .then(res => res.text())
+                .then(res => console.log("Enviado para planilha:", res))
+                .catch(err => console.error("Erro ao enviar:", err));
+        }
+    </script>
+
+</body>
+
+</html>
