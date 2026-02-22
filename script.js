@@ -174,7 +174,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // 2 - Cria pagamentos
             confirmarBtn.disabled = true;
-            const response = await fetch("https://SEU-BACKEND.onrender.com/criar_pagamento", {
+            const response = await fetch("https://sistema-de-inscricao-backend.onrender.com/criar_pagamento", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
